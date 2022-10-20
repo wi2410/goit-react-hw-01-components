@@ -1,34 +1,33 @@
 import PropTypes from 'prop-types';
+import {UserProfile,Container, StatsList,StatsItem, UserName, UserInfo,StatInfo,Avatar} from './Profile.styled';
 
 export const Profile = ({ avatar, username, tag, location, stats }) => { 
-    return <div className="profile">
-  <div className="description">
-    <img
-        src={avatar}
-        alt={username}
-        width="150px"
-        className="avatar"
-    />
-    <p className="name">{username}</p>
-    <p className="tag">@{tag}</p>
-    <p className="location">{location}</p>
-  </div>
-
-  <ul className="stats">
-    <li>
-      <span className="label">Followers</span>
-      <span className="quantity">{stats.followers}</span>
-    </li>
-    <li>
-      <span className="label">Views</span>
-      <span className="quantity">{stats.views}</span>
-    </li>
-    <li>
-      <span className="label">Likes</span>
-      <span className="quantity">{stats.likes}</span>
-    </li>
-  </ul>
-</div>
+    return <UserProfile>
+                <Container>
+                <Avatar
+                    src={avatar}
+                    alt={username}
+                    width="150px"
+                />
+                <UserName>{ username}</UserName>
+                <UserInfo className="tag">@{ tag}</UserInfo>
+                <UserInfo className="location">{ location}</UserInfo>
+                </Container>
+            <StatsList>
+                <StatsItem>
+                  <span className="label">Followers</span>
+                  <StatInfo className="quantity">{ stats.followers}</StatInfo>
+                </StatsItem>
+                <StatsItem>
+                  <span className="label">Views</span>
+                  <StatInfo className="quantity">{ stats.views}</StatInfo>
+                </StatsItem>
+                <StatsItem>
+                  <span className="label">Likes</span>
+                  <StatInfo className="quantity">{ stats.likes}</StatInfo>
+                </StatsItem>
+            </StatsList>
+        </UserProfile>;
 }
 
 Profile.propTypes = {
