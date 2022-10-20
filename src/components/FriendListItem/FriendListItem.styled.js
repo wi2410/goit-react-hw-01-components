@@ -28,6 +28,6 @@ export const Status = styled.span`
     border-radius:50%;
     margin: auto 10px;
     background-color: ${props => 
-    props.type === true ? "green" : "red"
+    props.type === 'true' ? "green" : "red"
     }};
 `;
